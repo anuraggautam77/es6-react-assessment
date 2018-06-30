@@ -3,7 +3,7 @@
 
 # JavaScript Stack 
 
-[![ES6](http://dearkumar.com/wp-content/uploads/2016/08/ES6-the-bits-youll-actually-use.png)]()]
+[![ES6](http://dearkumar.com/wp-content/uploads/2016/08/ES6-the-bits-youll-actually-use.png)]
 [![React](/client/public/img/techstack/react.png)](https://facebook.github.io/react/)
  
  
