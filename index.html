@@ -1,0 +1,214 @@
+<head>
+
+</head>
+
+<body>
+    
+    <script>
+
+        // Create a function than when executed as follows
+        //  will print in below format (Should maintain line breaks)
+        //Dear Mike,
+        //Wish you Happy Birthday!
+        //From,
+        //Steve
+        var greetings = (str1) => (str2) => str3 => {
+                    return `Dear ${str1},
+                             ${str2}
+                            From,
+                            ${str3}`;
+                }
+        console.log(greetings('Mike')('Wish you Happy Birthday!')('Steve'));
+
+
+
+        // --------
+
+        //   const  curriedMultiply = (n) => (m) => n * m;
+        //  console.log(curriedMultiply(3)(4));
+
+
+        // (iv)Change the below code such that the second argument of printComment has a default value  that’s initially 1,
+        //  and is incremented by 1 after each call.
+        var i = 1;
+        function printComment(comment, line = (() => i++)()) {
+            console.log(line, comment);
+        }
+
+        printComment(100);
+        printComment(100)
+
+
+        //Write a function that executes a callback function after a given delay in milliseconds. The default value of delay is one second.
+        var funcCall = function (callback, delay = 1000) {
+            console.log(delay);
+            setTimeout(() => {
+                callback(delay);
+            }, delay)
+        }
+        funcCall(function (d) {
+            console.log("callback>> Execute after+" + d + "  milisecond!!!")
+        }, undefined);
+        //-------- 
+        function test(num = 1) {
+            console.log(typeof num);
+        }
+        test("");
+        /*
+         
+         
+         //-----------
+         function calc(total, tax = .20, tip = .10) {
+         console.log(arguments);
+         //BOD MAS
+         //100+0+20(null*100= 0)
+         return total + total * tax + total * tip;
+         }
+         const bill = calc(100, null, .2);
+         console.log(bill);
+         const bill2 = calc(100, undefined, .2);
+         console.log(bill2);
+         
+         
+         
+         
+         
+         //-----code Here-----
+         
+         const arrwfunction = (arr) => arr.reduce((a, k) => a + k);
+         console.log(arrwfunction([1, 2, 3, 4, 5]));
+         
+         
+         //----------
+         
+         const name = "Mike";
+         const age = "20";
+         const profile = (name, age) => {
+         return {name,age};
+         };
+         console.log(profile(name, age));
+         
+         
+         //----------
+         
+         const Foo = () => {
+         };
+         
+         var a = function () {
+         
+         };
+         
+         console.log(a.prototype);
+         a.prototype.name = "Simple functiinnnn";
+         console.log(a.prototype);
+         console.log(a.name);
+         
+         console.log(">>>>>>>>>>>>>>>");
+         
+         console.log(Foo.prototype);
+         Foo.prototype.name = "Arrowww function";
+         console.log(Foo.prototype);
+         console.log(Foo.name);
+         
+         //-------- (iv) What will be the output
+         var  Foo = () => {
+         console.log(this);
+         this.name = "Mike";
+         }  
+         const obj = new Foo();
+         console.log(obj.name);
+         
+         
+         
+         
+         //----------------
+         var obj = {
+         i: 10,
+         
+         c: function () {
+         console.log(this.i,">>>", this);
+         // this.i is  10
+         // this refrer to function c
+         
+         },
+         b: () => console.log(this.i ,">>>", this)  // this.i refer to this of Parent scope ie i =undeined, this = window
+         }
+         
+         obj.c();
+         obj.b();
+         
+         
+         //----------------
+         function foo(n) {
+         
+         const f = () => arguments[0] + n;
+         return f();
+         }
+         const myfoo = foo(1);
+         console.log(myfoo);
+         
+         
+         const myfunc = (list) => arguments[0].sort();
+         const myList = myfunc([10, 20, 25]);
+         console.log(myList);
+         
+         //----------------
+         
+         
+         let guessMe1 = 1;
+         let guessMe2 = 2;
+         
+         {
+         try {
+         console.log(guessMe1, guessMe2);
+         } catch (err) {
+         console.log(">>>",guessMe1);
+         console.log(err);
+         }
+         let guessMe2 = 3;
+         console.log(guessMe1, guessMe2);
+         }
+         console.log(guessMe1, guessMe2);
+         
+         
+         // --------------------
+         
+         function Bar() {
+         console.log(this);
+         (function self() {
+         console.log(this);
+         })();
+         }
+         
+         function Drinks() {
+         console.log(this);
+         console.log("Thats because when you use an arrow function, the value of this is not rebound inside of that function. It is just inherited form whatever the parent scope is.")
+         (() => console.log(this))();
+         }
+         
+         
+         const barObj = new Bar();
+         const drinksObj = new Drinks();
+         
+         // --------------------
+         
+         
+         let foo = 0;
+         function bar() {
+         console.log(foo);
+         if (!foo) {
+         let foo = 10;
+         console.log(foo); //here it comme 10
+         }
+         console.log(foo); // here its come 0
+         }
+         bar()
+         */
+
+
+
+
+
+
+    </script>
+</body>
