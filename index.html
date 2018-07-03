@@ -1,0 +1,275 @@
+<head>
+    <title>Assignemnt 2</title>
+</head>
+
+<body>
+
+    <script>
+         //--------------------------------------------------------------------------//
+        // 1. Spread Operator & Rest Parameter
+           
+            function alphaSort(str) {
+             return ( [...str].sort((a, b) => a.localeCompare(b))).join('');
+          } 
+            console.log( alphaSort("bcda"));
+
+
+        //--------------------------------------------------------------------------//
+
+            // II.Solve using arguments object and spread operator
+            //Define a function that concatenates several strings in below format
+            // – Function should take a separator as first argument and multiple strings arguments
+            // – Function should return strings concatenated and separated by separator
+            //Input: test(", ", "Hello Sir", "How are you", "My name is Mike");
+            //Output - "Hello Sir, How are you, My name is Mike"
+            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+         
+
+        //--------------------------------------------------------------------------//
+
+            /*
+            Solve using arrow function and …rest param
+            Define a function that concatenates several strings in below format
+            – Function should take a separator as first argument and multiple strings arguments 
+            – Function should return strings concatenated and separated by separator
+            Input: test(", ", "Hello Sir", "How are you", "My name is Mike");
+            Output - "Hello Sir, How are you, My name is Mike
+            */
+       
+
+          concatinates = (sep, ...str) => str.join(sep);
+          console.log(concatinates(",", "Hello Sir", " How are you", " My name is Mike"));
+  
+
+        //--------------------------------------------------------------------------//
+
+
+        // What will be the output ?
+       
+             const myfunc = (...arg, separator) => arg.join(separator);
+             const myVal = myfunc(10, 20, 30, ",");
+             console.log(myVal);  
+
+          
+        //--------------------------------------------------------------------------//    
+
+
+        //What will be the output ?
+        
+          const myfunc = ...arg => arg.join(",");
+          const myVal = myfunc(10, 20, 30);
+          console.log(myVal);
+         
+
+
+
+        //--------------------------------------------------------------------------//    
+
+        // Solve using spread operator
+        // Write an arrow function that takes Integer as argument and returns integer in reverse
+        // Example:  Input– funcReverse(123456);
+        //Output– 654321
+
+        const funcReverse = (integerStr) => {
+
+            return parseInt([...String(integerStr)].reverse().join(''))
+        };
+
+        console.time('funcReverse');
+        console.log(funcReverse(123456))
+        console.timeEnd('funcReverse');
+            
+              ////////or///////
+
+        const funcReverseInt = (integerStr) => {
+            var x = '';
+            while (integerStr > 0) {
+                x= (x*10) + (integerStr % 10);
+                console.log(x);
+                integerStr = Math.floor(integerStr / 10);
+            }
+
+            return x;
+
+        };
+        console.log(typeof funcReverseInt(123456));
+
+        //--------------------------------------------------------------------------//  
+
+
+        //What will be the output?
+
+            let array1 = [1, 2];
+            let array2 = [3, 4, 5];
+            array1.push(array2);
+            console.info(array1);
+            
+
+        //--------------------------------------------------------------------------// 
+
+
+        // Solve using native apply method to push array elements into another array
+        // Write an arrow function that take 3 arrays as argument and appends last 2 arrays elements into first array and returns first array
+        // (Don’ t return new array,  return same first array passed in argument after appending last 2 arrays elements to it)
+        
+                let array1 = [1, 2];
+                let array2 = [3, 4, 5];
+                let array3 = [6, 7, 8];
+                pusharray = (arr1, arr2, arr3) => {
+
+                    Array.prototype.push.apply(arr1, arr2);
+                    Array.prototype.push.apply(arr1, arr3);
+                    return arr1
+                };
+
+                console.log(pusharray(array1, array2, array3));
+                  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+             
+
+        //--------------------------------------------------------------------------//
+
+
+
+        //Solve using spread operator to push array elements into another array
+        // Write an arrow function that take 3 arrays as argument and appends last 2 arrays elements into first array and returns first array
+        // (Don’t return new array, return same first array passed in argument after appending last 2 arrays elements to it)
+
+        
+        let array1 = [1, 2];
+        let array2 = [3, 4, 5];
+        let array3 = [6, 7, 8];
+        pusharray = (arr1,arr2,arr3) => {
+            
+            console.log(arr1);
+            
+        };
+
+       pusharray(...array1,array2, array3);
+
+        //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        
+ //--------------------------------------------------------------------------//
+
+
+
+
+
+
+
+
+        /////////////----------Destructuring-----------------////////////
+
+        // Write expression for destructuring below object without variable declaration
+
+         let obj = {  a: 2,  b: 4 };
+         let {  a,  b  } = obj;  
+
+
+        //--------------------------------------------------------------------------//
+
+
+        //Write expression for destructuring below object, extract company, name, age, state, spouse name
+        //Note : Assign to new variable names and provide default values for company and state
+
+         
+        let data = {
+            role: "Engineer",
+            company: "SR",
+            personal: {
+                name: "Sumit",
+                age: 25,
+                country: "IND",
+                state: undefined,
+                spouse: {
+                    name: "Reena"
+                }
+            }
+        };
+
+        let {  company, personal: {state, name: newname,  age: newage, spouse: {  name: spousename  } } } = data;
+        
+                console.log(newname);
+                console.log(newage);
+                console.log(spousename);
+
+                console.log(company);
+                console.log(state);
+
+  
+        //--------------------------------------------------------------------------//
+
+        //Write an example of destructuring inside the for-of loop for below list
+        // to create a new list of objects with only name and company properties
+        let arr = [{
+                name: "Mike",
+                age: 25,
+                role: "Engineer",
+                company: "SR"
+            },
+            {
+                name: "Sam",
+                age: 27,
+                role: "Senior Engineer",
+                company: "SR"
+            },
+            {
+                name: "Peter",
+                age: 28,
+                role: "Senior Program Manager",
+                company: "SR"
+            }
+        ]
+        var newlist = []
+        for (const list of arr) {
+            let { name,  company } = list;
+            newlist.push({  name,  company })
+        }
+        console.log(newlist);
+
+        //--------------------------------------------------------------------------//
+        //Write expression for destructuring below object, extract children name
+
+        let data = {
+            role: "Engineer",
+            company: "SR",
+            personal: {
+                name: "Sumit",
+                age: 25,
+                country: "IND",
+                state: undefined,
+                children: [{
+                    name: "Mayank"
+                }]
+            }
+        }
+
+      const [{name}]=data.personal.children;
+
+      //--------------------------------------------------------------------------//
+
+        //VI. Write a function to show destructuring for objects passed as function parameter
+
+            function myDestruct({name, age}) {
+            console.log(name);
+            console.log(age);
+            }
+
+            myDestruct({ name: 'John', age: 25 });
+
+        //------------------------------------------------------------------------
+        // Write examples to show rest param usage in array and object destructuring
+        
+                var arr = [1, 2, 3, 4,5,6];
+                const [x,y,z] = arr;
+                console.log(x, y, z)
+                // rest parameter
+                var [x, y, ...z] = arr;
+                console.log(z);
+                
+
+
+
+    </script>
+</body>
